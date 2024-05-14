@@ -200,17 +200,30 @@
     display: grid;
     width: 100%;
     height: 100vh;
-    grid-template-columns: 1fr 2fr;
+    grid-template-columns: 1fr ;
     justify-content: center;    
     align-items: center;
     gap: 20pt;  
 }
 
+
+.text-center{
+
+  
+  display: grid;
+  width: 100%;
+  background: linear-gradient(300deg, #41C9E2, #2c2c2c, #ACE2E1);
+  background-size: 180% 180%;
+  animation: gradient-animation 18s ease infinite;
+}
+
+
+
 #myproject div{
     padding: 10px;
     width: 100%;
     height:100%;   
-    gap: 10px;
+    gap: 10px;  
     border: 1px solid black;
     border-radius: 15px;
     
@@ -307,6 +320,21 @@
     display: none;
   }
 }
+
+
+.proj {
+
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+  flex-wrap: wrap;
+  text-wrap: wrap;
+  justify-content: space-evenly;
+  
+}
+
+
+
   </style>
 
 <link rel="stylesheet" href="./style.css">
@@ -374,11 +402,12 @@
     </div>
 
 
-    <div id="myproject" class="container">
-        
+      <div id="myproject" class="container horizontal-scrollable" >     
+          
+        <div class="row text-center" style="display: grid; grid-template-columns: 1fr 1fr;">
+        <div class="proj"> <img src="./bjgame.png" alt="" max-width="100%" width="100%" height="90%" ></div>
 
-        <div> <img src="./bjgame.png" alt="" width="500" height="100%" ></div>
-        <div>
+        <div class="proj"> 
             <h2><img src="" alt="">Introduction:</h2>
 
             <img src="./bj.png" alt="" width="200"  style="margin: 20px; border-radius: 15px;">
@@ -388,17 +417,24 @@
             <p>The player wins, if he/she gets a higher point than that of the computer, vice versa. </p>  
             <a href="https://github.com/nfch211/Python-coding-skills/blob/master/Game%20-%20Blackjack.ipynb"><button type="button" class="btn btn-info">Code</button></a>
         </div> 
+
         <div> more to come . . . </div>
         <div> more to come . . . </div>
         <div> more to come . . . </div>
         <div> more to come . . . </div>
         
+
+
+
+
+    </div>
+  </div>
+
                   
     
     
 
 
-    </div>
 
 
 
