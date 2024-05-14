@@ -5,6 +5,15 @@
 }
 
 
+.company-icon-background {
+  background: linear-gradient(300deg, #FAEC1E, #71FA1E, #CDFA1E);
+  background-size: 180% 180%;
+  animation: gradient-animation 18s ease infinite;
+}
+
+
+
+
 #timeline{
 
     background: linear-gradient(300deg, #41C9E2, #008DDA, #ACE2E1);
