@@ -48,8 +48,8 @@
 
 @keyframes content-text {
   0% {
+    opacity: 0;
     transform: translateY(30px); /* Start offscreen */
-    opacity: 0; /* Start invisible */
   }
   100% {
     transform: translateY(0); /* Move to original position */
@@ -58,7 +58,7 @@
 }
 
 .about-text p {
-  animation: content-text 2s ease; /* Smooth animation */
+  animation: content-text 2s ease-out; /* Smooth animation */
 }
 
 .article-title {
@@ -158,4 +158,45 @@
     font-size: 12px;
     padding: 20px 0 0;
   }
+}
+
+.email {
+  animation: content-text 0.5s ease-out 2s; /* Smooth animation */
+  animation-fill-mode: backwards; /* Reverse the animation */
+}
+
+.phone {
+  animation: content-text 0.5s ease-out 2.2s; /* Smooth animation */
+  animation-fill-mode: backwards; /* Reverse the animation */
+}
+
+.address {
+  animation: content-text 0.5s ease-out 2.4s; /* Smooth animation */
+  animation-fill-mode: backwards; /* Reverse the animation */
+}
+
+.avatar-box {
+  animation: content-box 2s ease-out 1.5s; /* Smooth animation */
+  animation-fill-mode: backwards;
+}
+
+.info-content {
+  animation: content-text 0.5s ease-out 1.7s; /* Smooth animation */
+  animation-fill-mode: backwards; /* Reverse the animation */
+}
+
+@keyframes content-social-list {
+  0% {
+    transform: translateX(-50%); /* Start offscreen */
+    opacity: 0; /* Start invisible */
+  }
+  100% {
+    transform: translateX(0); /* Move to original position */
+    opacity: 1; /* Fully visible */
+  }
+}
+
+.social-list {
+  animation: content-social-list 0.3s ease-out 2.6s; /* Smooth animation */
+  animation-fill-mode: backwards; /* Reverse the animation */
 }
