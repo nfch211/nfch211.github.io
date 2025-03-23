@@ -1,0 +1,95 @@
+/* Define the rainbow colors and variables */
+:root {
+  --colors: #f94144, #f3722c, #f8961e, #f9844a, #f9c74f, #90be6d, #43aa8b,
+    #4d908e, #277da1, #577590;
+  --border-width: 6px;
+  --blur-radius: 2em;
+  --jet: #333; /* Adjust as needed */
+  --shadow2: 0 4px 6px rgba(0, 0, 0, 0.1); /* Adjust as needed */
+}
+
+/* Register the custom property for animation */
+@property --angle {
+  syntax: "<angle>";
+  initial-value: 0deg;
+  inherits: false; /* Better performance */
+}
+
+/* Animation for the gradient */
+@keyframes rotate {
+  to {
+    --angle: 360deg; /* Full rotation */
+  }
+}
+
+/* Navbar styling */
+.navbar {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background: hsla(240, 1%, 17%, 0.75);
+  backdrop-filter: blur(10px);
+  border-radius: 12px 12px 0 0;
+  box-shadow: var(--shadow2);
+  z-index: 5;
+
+  /* Animated gradient border with ::before */
+  &::before {
+    --full: conic-gradient(red 0 0); /* Helper for masking */
+    position: absolute;
+    inset: calc(-1 * var(--border-width)); /* Extend outside */
+    border: var(--border-width) solid transparent; /* Define border */
+    border-radius: inherit; /* Match corners */
+    background: conic-gradient(from var(--angle), var(--colors), #f94144)
+      border-box; /* Gradient */
+    mask: var(--full) padding-box subtract; /* Show only border area */
+    animation: rotate 4s linear infinite; /* Animate */
+    content: "";
+    pointer-events: none; /* Don’t block interaction */
+    z-index: -1; /* Behind content */
+  }
+
+  /* Glow effect with ::after */
+  &::after {
+    --full: conic-gradient(red 0 0); /* Helper for masking */
+    position: absolute;
+    inset: calc(-1 * var(--border-width)); /* Same size */
+    border: var(--border-width) solid transparent; /* Match border */
+    border-radius: inherit;
+    background: conic-gradient(from var(--angle), var(--colors), #f94144)
+      border-box; /* Same gradient */
+    mask: var(--full) padding-box subtract; /* Show only border area */
+    filter: blur(var(--blur-radius)); /* Glow */
+    content: "";
+    pointer-events: none;
+    z-index: -1; /* Behind content */
+  }
+}
+
+/* Navbar list styling */
+.navbar-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  padding: 0 10px;
+  position: relative; /* Keep content above pseudo-elements */
+}
+
+/* Navbar link styling */
+.navbar-link {
+  color: var(--light-gray);
+  font-size: var(--fs8);
+  padding: 20px 7px;
+  transition: color var(--transition1);
+}
+
+.navbar-link:hover,
+.navbar-link:focus {
+  color: var(--light-gray70);
+}
+
+.navbar-link.active {
+  color: var(--orange-yellow-crayola);
+}
