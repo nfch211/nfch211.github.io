@@ -170,3 +170,48 @@ navigationLinks.forEach((link) => {
     window.scrollTo(0, 0); // Scroll to top
   });
 });
+
+// Array for days of the week
+var week = ["SUN", "MON", "TUE", "WED", "THU", "FRI", "SAT"];
+
+// Function to update the time and date
+function updateTime() {
+  var cd = new Date();
+
+  // Format time as HH:MM:SS with leading zeros
+  var time =
+    zeroPadding(cd.getHours(), 2) +
+    ":" +
+    zeroPadding(cd.getMinutes(), 2) +
+    ":" +
+    zeroPadding(cd.getSeconds(), 2);
+
+  // Format date as YYYY-MM-DD DAY
+  var date =
+    zeroPadding(cd.getFullYear(), 4) +
+    "-" +
+    zeroPadding(cd.getMonth() + 1, 2) +
+    "-" +
+    zeroPadding(cd.getDate(), 2) +
+    " " +
+    week[cd.getDay()];
+
+  // Update the DOM elements
+  document.getElementById("time").innerHTML = time;
+  document.getElementById("date").innerHTML = date;
+}
+
+// Function to add leading zeros to numbers
+function zeroPadding(num, digit) {
+  var zero = "";
+  for (var i = 0; i < digit; i++) {
+    zero += "0";
+  }
+  return (zero + num).slice(-digit);
+}
+
+// Set up a timer to update every second
+var timerID = setInterval(updateTime, 1000);
+
+// Call once to display immediately
+updateTime();

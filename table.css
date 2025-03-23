@@ -1,0 +1,32 @@
+/* Basic table styling */
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  font-family: Arial, sans-serif;
+}
+
+/* Style for table headers and cells */
+th,
+td {
+  padding: 10px;
+  text-align: left;
+  transition: font-size 0.3s ease; /* Smooth text size change */
+}
+
+/* Default text size */
+th,
+td {
+  font-size: 16px;
+}
+
+/* Enlarged text size when active */
+tr.active th,
+tr.active td {
+  font-size: 20px; /* Enlarged size */
+}
+
+/* Style for nested elements like <p> and <ul> */
+tr.active p,
+tr.active li {
+  font-size: inherit; /* Match the parent’s enlarged size */
+}
